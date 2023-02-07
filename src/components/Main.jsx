@@ -1,44 +1,68 @@
 import React from "react";
 import styled from "styled-components";
-import water from '../assets/img/water.webp'
-import modelo from '../assets/img/modelo.png'
+import modelo from '../assets/img/modelo-fundo-branco.jpg'
+import { Button } from "./styles";
 
 const Content = styled.div`
-  background: #fff;
+  background: #F6F6F6;
   margin: 0;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  justify-items: center;
   align-items: center;
   border-bottom: 1px solid black;
   p{
     font-size: 3em;
   }
-  .modelfoto{
-    grid-column-start: 6;
-    grid-column-end: 11;
+  .img-container{
+    grid-column: 7 / 12;
     font-size: 1em;
+    text-align: right;
     /* https://e7.pngegg.com/pngimages/353/962/png-clipart-name-julija-female-woman-model-others-miscellaneous-fashion.png */
     img{
-      width: 83%;
+      transform: translateY(4px);
+      width: 92%;
       filter: grayscale(100%);
+    }
+  }
+  .text-container{
+    grid-column: 1 / 7;
+    text-align: right;
+    transform: translateX(0px);
+    z-index: 1;
+    h1{
+      transform: translateX(60px);
+      letter-spacing: 4px;
+      font-size: 2.1em;
+      font-weight: lighter;
+    }
+    p{
+      transform: translateX(50px);
+      font-size: 1.2em;
+    }
+    button{
+      transform: translateX(50px);
+    }
+    button:hover{
+      color: #fff;
+      background-color: #000;
     }
   }
 `
 
 export default function Main(){
+
   return(
     <Content>
-        <p>1</p>
-        <p>2</p>
-        <p>3</p>
-        <p>4</p>
-        <p>5</p>
-        <div className="modelfoto">
-          <img src={modelo} alt="" />
+        <div className="text-container">
+          <h1>A way of thinking in fashion design.</h1>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora aut eaque dolorum quibusdam quasi dolor ipsam? Illum amet et totam dignissimos unde, quia enim, dolor temporibus, nostrum obcaecati minus explicabo.</p>
+          <Button addBorder fontSize="1.2em" color="#000" bgColor="#F6F6F6">More information</Button>
         </div>
-        <p>11</p>
-        <p>12</p>
+        <div className="img-container">
+          <img src={modelo} alt="Modelo de jaqueta e óculos" loading="eager"/>
+        </div>
     </Content>
   )
 }
