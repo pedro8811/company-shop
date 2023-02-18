@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import modelo from "../assets/img/model-fundo-preto.jpg";
+import modelo from "../assets/webp-imgs/model-fundo-preto.webp";
 import { Button } from "./styles.jsx";
 
 const Main = styled.div`
-  background: #000;
+  background: #020202;
   color: #fff;
   margin: 0;
   width: 100%;

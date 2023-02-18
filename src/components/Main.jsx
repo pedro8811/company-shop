@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import modelo from '../assets/img/modelo-fundo-branco.jpg'
+import modelo from '../assets/webp-imgs/modelo-fundo-branco.webp'
 import { Button } from "./styles";
+
 
 const Content = styled.div`
   background: #F6F6F6;
@@ -53,6 +54,7 @@ const Content = styled.div`
 
 export default function Main(){
 
+
   return(
     <Content>
         <div className="text-container">
@@ -61,7 +63,7 @@ export default function Main(){
           <Button addBorder fontSize="1.2em" color="#000" bgColor="#F6F6F6">More information</Button>
         </div>
         <div className="img-container">
-          <img src={modelo} alt="Modelo de jaqueta e óculos" loading="eager"/>
+          <img src={require('../assets/webp-imgs/modelo-fundo-branco.webp')} alt="Modelo de jaqueta e óculos" loading="eager"/>
         </div>
     </Content>
   )

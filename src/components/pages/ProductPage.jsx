@@ -2,6 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import Header from "../Header";
 import PromoBanner from "../PromoBanner";
+import {
+  FormControl,
+  FormControlLabel,
+  RadioGroup,
+  Radio,
+  FormLabel
+} from "@mui/material";
 
 const Main = styled.div`
   .product-grid {
@@ -18,8 +25,13 @@ const Main = styled.div`
       border: 1px solid black;
       margin-right: 10px;
       padding: 10px;
-      background: rgb(231,231,231);
-      background: linear-gradient(180deg, rgba(231,231,231,1) 0%, rgba(255,255,255,1) 50%, rgba(231,231,231,1) 100%);;
+      background: rgb(231, 231, 231);
+      background: linear-gradient(
+        180deg,
+        rgba(231, 231, 231, 1) 0%,
+        rgba(255, 255, 255, 1) 50%,
+        rgba(231, 231, 231, 1) 100%
+      );
       h1 {
         margin: 0 0 10px 0;
         font-weight: 200;
@@ -33,52 +45,114 @@ const Main = styled.div`
       border: 1px solid black;
       background-color: white;
     }
-    .div1 {grid-area: 1 / 1 / 6 / 2;}
-    .div2 {grid-area: 1 / 2 / 2 / 3;}
-    .div3 {grid-area: 1 / 3 / 2 / 4;}
-    .div4 {grid-area: 1 / 4 / 2 / 5;}
-    .div5 {grid-area: 1 / 5 / 2 / 6;}
-    .div6 {grid-area: 2 / 2 / 3 / 3;}
-    .div7 {grid-area: 2 / 3 / 3 / 4;}
-    .div8 {grid-area: 2 / 4 / 3 / 5;}
-    .div9 {grid-area: 2 / 5 / 3 / 6;}
-    .div10 {grid-area: 3 / 2 / 4 / 3;}
-    .div11 {grid-area: 3 / 3 / 4 / 4;}
-    .div12 {grid-area: 3 / 4 / 4 / 5;}
-    .div13 {grid-area: 3 / 5 / 4 / 6;}
-    .div14 {grid-area: 4 / 2 / 5 / 3;}
-    .div15 {grid-area: 4 / 3 / 5 / 4;}
-    .div16 {grid-area: 4 / 4 / 5 / 5;}
-    .div17 {grid-area: 4 / 5 / 5 / 6;}
-    .div18 {grid-area: 5 / 2 / 6 / 3;}
-    .div19 {grid-area: 5 / 3 / 6 / 4;}
-    .div20 {grid-area: 5 / 4 / 6 / 5;}
-    .div21 {grid-area: 5 / 5 / 6 / 6;}
-    .div22 {grid-area: 6 / 2 / 7 / 3;}
-    .div23 {grid-area: 6 / 3 / 7 / 4;}
-    .div24 {grid-area: 6 / 4 / 7 / 5;}
-    .div25 {grid-area: 6 / 5 / 7 / 6;}
-    .div26 {grid-area: 7 / 2 / 8 / 3;}
-    .div27 {grid-area: 7 / 3 / 8 / 4;}
-    .div28 {grid-area: 7 / 4 / 8 / 5;}
-    .div29 {grid-area: 7 / 5 / 8 / 6;}
-    .div30 {grid-area: 8 / 2 / 9 / 3;}
-    .div31 {grid-area: 8 / 3 / 9 / 4;}
-    .div32 {grid-area: 8 / 4 / 9 / 5;}
-    .div33 {grid-area: 8 / 5 / 9 / 6;}
+    .div1 {
+      grid-area: 1 / 1 / 6 / 2;
+    }
+    .div2 {
+      grid-area: 1 / 2 / 2 / 3;
+    }
+    .div3 {
+      grid-area: 1 / 3 / 2 / 4;
+    }
+    .div4 {
+      grid-area: 1 / 4 / 2 / 5;
+    }
+    .div5 {
+      grid-area: 1 / 5 / 2 / 6;
+    }
+    .div6 {
+      grid-area: 2 / 2 / 3 / 3;
+    }
+    .div7 {
+      grid-area: 2 / 3 / 3 / 4;
+    }
+    .div8 {
+      grid-area: 2 / 4 / 3 / 5;
+    }
+    .div9 {
+      grid-area: 2 / 5 / 3 / 6;
+    }
+    .div10 {
+      grid-area: 3 / 2 / 4 / 3;
+    }
+    .div11 {
+      grid-area: 3 / 3 / 4 / 4;
+    }
+    .div12 {
+      grid-area: 3 / 4 / 4 / 5;
+    }
+    .div13 {
+      grid-area: 3 / 5 / 4 / 6;
+    }
+    .div14 {
+      grid-area: 4 / 2 / 5 / 3;
+    }
+    .div15 {
+      grid-area: 4 / 3 / 5 / 4;
+    }
+    .div16 {
+      grid-area: 4 / 4 / 5 / 5;
+    }
+    .div17 {
+      grid-area: 4 / 5 / 5 / 6;
+    }
+    .div18 {
+      grid-area: 5 / 2 / 6 / 3;
+    }
+    .div19 {
+      grid-area: 5 / 3 / 6 / 4;
+    }
+    .div20 {
+      grid-area: 5 / 4 / 6 / 5;
+    }
+    .div21 {
+      grid-area: 5 / 5 / 6 / 6;
+    }
+    .div22 {
+      grid-area: 6 / 2 / 7 / 3;
+    }
+    .div23 {
+      grid-area: 6 / 3 / 7 / 4;
+    }
+    .div24 {
+      grid-area: 6 / 4 / 7 / 5;
+    }
+    .div25 {
+      grid-area: 6 / 5 / 7 / 6;
+    }
+    .div26 {
+      grid-area: 7 / 2 / 8 / 3;
+    }
+    .div27 {
+      grid-area: 7 / 3 / 8 / 4;
+    }
+    .div28 {
+      grid-area: 7 / 4 / 8 / 5;
+    }
+    .div29 {
+      grid-area: 7 / 5 / 8 / 6;
+    }
+    .div30 {
+      grid-area: 8 / 2 / 9 / 3;
+    }
+    .div31 {
+      grid-area: 8 / 3 / 9 / 4;
+    }
+    .div32 {
+      grid-area: 8 / 4 / 9 / 5;
+    }
+    .div33 {
+      grid-area: 8 / 5 / 9 / 6;
+    }
   }
-  .sub-card{
+  .sub-card {
     color: #000000;
     box-shadow: 0 0 5px black;
     padding: 10px;
     border-radius: 10px;
-    h2{
+    h2 {
       margin: 0px 0px 10px 0px;
       font-weight: 100;
-    }
-    .check-box{
-      font-size: 16px;
-      margin-bottom: 5px;
     }
   }
 `;
@@ -90,19 +164,34 @@ export default function ProductPage() {
       <PromoBanner />
       <div className="product-grid">
         <div className="filter div1">
-          <h1>Filter</h1>
+          <h1>filter</h1>
           <div className="sub-card">
-            <h2>Gender</h2>
-            <form>
-              <div className="check-box">
-                <input type="checkbox" />
-                <label>Male</label>
-              </div>
-              <div className="check-box">
-                <input type="checkbox" />
-                <label>Female</label>
-              </div>
-            </form>
+            <h2>gender</h2>
+            <FormControl>
+              <RadioGroup
+                aria-labelledby="demo-radio-buttons-group-label"
+                defaultValue="female"
+                name="radio-buttons-group"
+              >
+                <FormControlLabel
+                  value="female"
+                  control={<Radio />}
+                  label="Female"
+                />
+                <FormControlLabel
+                  value="male"
+                  control={<Radio />}
+                  label="Male"
+                />
+                <FormControlLabel
+                  value="other"
+                  control={<Radio />}
+                  label="Other"
+                />
+              </RadioGroup>
+            </FormControl>
+            <h2>type of clothes</h2>
+            
           </div>
         </div>
         <div className="product-card div2">
