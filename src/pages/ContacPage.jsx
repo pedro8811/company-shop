@@ -1,16 +1,16 @@
 import React from "react";
-import Header from '../Header'
 import styled from "styled-components";
+import Header from '../components/Header'
 
 const Main = styled.div`
-
+  margin: 0;
 `
 
-export default function AboutUsPage(){
+export default function ContactPage(){
   return(
     <Main>
       <Header></Header>
-      <h1>ABOUT US PAGE</h1>
+      <h1>CONTACT PAGE</h1>
     </Main>
   )
 }

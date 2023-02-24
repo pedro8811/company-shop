@@ -19,7 +19,6 @@ const Content = styled.div`
     grid-column: 7 / 12;
     font-size: 1em;
     text-align: right;
-    /* https://e7.pngegg.com/pngimages/353/962/png-clipart-name-julija-female-woman-model-others-miscellaneous-fashion.png */
     img{
       transform: translateY(4px);
       width: 92%;

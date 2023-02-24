@@ -1,13 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { IoSearchOutline } from "react-icons/io5";
+import { IoSearchOutline, IoCartOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
+import { IconButton, Tooltip } from "@mui/material";
 
 const Header = styled.header`
-  background-color: #F6F6F6;
+  background-color: #f6f6f6;
   border-bottom: 1px solid #858585;
   text-transform: uppercase;
-  div{
+  div {
     padding: 0px 30px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -22,7 +25,7 @@ const Header = styled.header`
       font-size: 2.3em;
       margin-right: 12px;
     }
-    .title{
+    .title {
       letter-spacing: 4px;
       font-size: 1.4em;
       font-weight: 600;
@@ -35,44 +38,52 @@ const Header = styled.header`
     padding: 0;
     display: flex;
     justify-content: space-around;
-    .nav-li{
+    .nav-li {
       cursor: pointer;
       text-decoration: none;
       font-weight: 500;
       color: #686868;
-      transition: color .5s linear;
+      transition: color 0.5s linear;
     }
-    .nav-li:hover{
+    .nav-li:hover {
       text-decoration: none;
       color: black;
     }
   }
-  .auth{
-    list-style: none;
+  .auth {
+    list-style-type: none;
     margin: 0;
+    padding: 0;
+    margin-left: 180px;
     display: flex;
-    justify-content: right;
+    justify-content: space-around;
     color: #686868;
     align-items: center;
-    .auth-li{
-      font-size: 1em;
-      margin-left: 30px;
-      padding: 10px;
-      border-radius: 30px;
-      transition: all .2s linear;
+    .auth-li {
+      color: #686868;
+      text-decoration: none;
+      padding: 0px;
+      transition: all 0.2s linear;
     }
-    .auth-li:hover{
+    .auth-li:hover {
       color: black;
       cursor: pointer;
     }
-    
+  }
+  .fsvinte {
+    font-size: 20px;
+  }
+  .dsnone {
+    display: none;
   }
 `;
 
 export default function Nav() {
-  
-  
-  
+  const { signout } = useAuth();
+  const navigate = useNavigate();
+
+  const navbar = document.getElementsByClassName("nav");
+
   return (
     <Header>
       <div>
@@ -81,15 +92,33 @@ export default function Nav() {
           <h1 className="title">Fire Company.</h1>
         </div>
         <ul className="nav">
-          <Link to="/" className="nav-li"><li>Home</li></Link>
-          <Link to="/products" className="nav-li"><li>Products</li></Link>
-          <Link to="/contact" className="nav-li"><li>Contact</li></Link>
-          <Link to="/aboutus" className="nav-li"><li>About Us</li></Link>
+          <Link to="/home" className="nav-li">
+            <li>Home</li>
+          </Link>
+          <Link to="/products" className="nav-li">
+            <li>Products</li>
+          </Link>
+          <Link to="/contact" className="nav-li">
+            <li>Contact</li>
+          </Link>
+          <Link to="/aboutus" className="nav-li">
+            <li>About Us</li>
+          </Link>
         </ul>
         <ul className="auth">
-          <IoSearchOutline className="auth-li"></IoSearchOutline>
-          <li className="auth-li">Login</li>
-          <li className="auth-li">Sign Up</li>
+          <Tooltip title="Search">
+            <IconButton>
+              <IoSearchOutline className="auth-li fsvinte"></IoSearchOutline>
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="Cart">
+            <IconButton>
+              <IoCartOutline className="auth-li fsvinte"></IoCartOutline>
+            </IconButton>
+          </Tooltip>
+          <Link onClick={() => [signout(), navigate("/")]} className="auth-li">
+            Log Out
+          </Link>
         </ul>
       </div>
     </Header>
