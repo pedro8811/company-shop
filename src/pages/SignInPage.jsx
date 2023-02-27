@@ -4,6 +4,7 @@ import Input from '../components/Input'
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import CircularProgress from '@mui/material/CircularProgress';
+import { TextField } from "@mui/material";
 
 const Container = styled.div`
   display: flex;
@@ -36,6 +37,7 @@ const Title = styled.h1`
   font-weight: 500;
   text-transform: uppercase;
   border-bottom: 1px solid black;
+  margin: 0;
 `
 
 const Content = styled.div`
@@ -53,7 +55,7 @@ const Content = styled.div`
 `
 
 const Label = styled.label`
-  margin-bottom: 10px;
+  margin-top: 15px;
   text-transform: uppercase;
   font-size: 18px;
   font-weight: 600;
@@ -102,34 +104,54 @@ export default function SignIn(){
     navigate("/home")
   }
   
-  const spinner = <div class="spinner-border" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
+  const inverterElementos = e => {
+    document.getElementById('circle').style.display = 'flex'
+    document.getElementById('login-button').style.display = 'none'
+  }
+  
+  const handleClick = () => {
+    setTimeout(handleLogin, rndInt)
+    inverterElementos()
+    if(error.length > 0){
+      document.getElementById('circle').style.display = 'none'
+      document.getElementById('login-button').style.display = 'block'
+    }
+  }
+
+  const generateNumber = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
+  const rndInt = generateNumber(1000, 2000)
 
   return(
     <Container>
       <Content>
         <Title className="title">Fire Company.</Title>
         <Label>login</Label>
-        <Input
-        type="email"
-        placeholder="Digite seu E-mail"
+        <TextField 
+        fullWidth 
+        color="grey"
+        label="E-mail" 
+        variant="standard"
         value={email}
-        onChange={e => [setEmail(e.target.value), setError("")]}/>
-        <Input
+        onChange={e => [setEmail(e.target.value), setError("")]}>
+        </TextField>
+        <TextField
+        fullWidth
+        color="grey"
+        label="Password" 
+        variant="standard" 
         type="password"
-        placeholder="Digite sua Senha"
         value={senha}
-        onChange={e => [setSenha(e.target.value), setError("")]}
-        />
+        onChange={e => [setSenha(e.target.value), setError("")]}>
+        </TextField>
         <LabelError>{error}</LabelError>
-        <Button onClick={() => setTimeout(handleLogin, 2000)}>
-          <CircularProgress color="inherit"/>
+        <Button onClick={handleClick} style={{display: 'flex', justifyContent: 'center'}}>
+          <CircularProgress color="inherit" id="circle" size={18} style={{display: 'none'}}/>
+          <p style={{display: 'block', margin: 0 + 'px'}} id="login-button">Login</p>
         </Button>
         <LabelSingUp>
-          Não tem uma conta?
+          Don't have an account?
           <Strong>
-            <Link to="/signup">&nbsp;Registre-se</Link>
+            <Link to="/signup">&nbsp;Register!</Link>
           </Strong>
         </LabelSingUp>
       </Content>

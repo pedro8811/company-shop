@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import modelo from '../assets/webp-imgs/modelo-fundo-branco.webp'
 import { Button } from "./styles";
 
 const Content = styled.div`

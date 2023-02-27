@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import modelo from "../assets/webp-imgs/model-fundo-preto.webp";
 import { Button } from "./styles.jsx";
 
 const Main = styled.div`
@@ -45,7 +44,7 @@ export default function SubMain() {
   return (
     <Main>
       <div className="img-container">
-        <img src={modelo} alt="" loading="eager" />
+        <img src={require('../assets/webp-imgs/model-fundo-preto.webp')} alt="" loading="eager" />
       </div>
       <div className="text-container">
         <h1>
