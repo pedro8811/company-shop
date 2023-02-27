@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import styled from 'styled-components'
 import Input from '../components/Input'
-import Button from '../components/Button'
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Container = styled.div`
   display: flex;
@@ -12,6 +12,24 @@ const Container = styled.div`
   flex-direction: column;
   gap: 10px;
   height: 100vh;
+`
+
+const Button = styled.button`
+  padding: 16px 20px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+  background-color: #323232;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  max-width: 350px;
+  transition: all .1s linear;
+  &:hover{
+    background-color: #1e1e1e;
+  }
 `
 
 const Title = styled.h1`
@@ -80,10 +98,14 @@ export default function SignIn(){
       setError(res)
       return;
     }
-  
+    
     navigate("/home")
   }
   
+  const spinner = <div class="spinner-border" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+
   return(
     <Container>
       <Content>
@@ -101,7 +123,9 @@ export default function SignIn(){
         onChange={e => [setSenha(e.target.value), setError("")]}
         />
         <LabelError>{error}</LabelError>
-        <Button Text="Entrar" onClick={() => setTimeout(handleLogin, 2000)}/>
+        <Button onClick={() => setTimeout(handleLogin, 2000)}>
+          <CircularProgress color="inherit"/>
+        </Button>
         <LabelSingUp>
           Não tem uma conta?
           <Strong>
