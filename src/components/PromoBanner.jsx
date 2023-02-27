@@ -3,12 +3,12 @@ import styled from "styled-components";
 
 const Main = styled.div`
   width: 100%;
-  height: 420px;
+  height: 520px;
   .right-label{
     text-align: center;
     margin: 0;
-    padding-top: 6%;
-    font-size: 70px;
+    padding-top: 9%;
+    font-size: 90px;
     font-weight: 200;
     left: 320px;
     color: #ffffff;
@@ -32,7 +32,7 @@ const Main = styled.div`
   }
   img{
     filter: grayscale(100%);
-    height: 420px;
+    height: 520px;
     position: relative;
     width: 100%;
     opacity: 1;
@@ -44,7 +44,7 @@ export default function PromoBanner(){
   return(
     <Main>
       <label className="right-label">Catalogue</label>
-      <img src={require('../assets/img/mulher-banner.jpg')} />
+      <img src={require('../assets/webp-imgs/mulher-banner.webp')} />
       <label className="left-label">20% OFF with <br/><p>newsite</p> cupom</label>
     </Main>
   )
