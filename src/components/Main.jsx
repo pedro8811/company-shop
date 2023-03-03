@@ -19,15 +19,14 @@ const Content = styled.div`
     font-size: 1em;
     text-align: right;
     img{
-      transform: translateY(4px);
-      width: 92%;
+      transform: translateY(0px);
+      width: 93%;
       filter: grayscale(100%);
     }
   }
   .text-container{
     grid-column: 1 / 7;
     text-align: right;
-    transform: translateX(0px);
     z-index: 1;
     h1{
       transform: translateX(60px);

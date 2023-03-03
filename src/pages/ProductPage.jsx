@@ -2,78 +2,32 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Header from "../components/Header";
 import PromoBanner from "../components/PromoBanner";
-import { AiOutlineLeft } from "react-icons/ai";
 import Footer from "../components/Footer";
-import { IconButton, Tooltip } from "@mui/material";
+import "bootstrap/dist/css/bootstrap.min.css";
+import {AiOutlineUp, AiOutlineDown} from 'react-icons/ai'
+import {BsFillGridFill} from 'react-icons/bs'
+import {FaThList} from 'react-icons/fa'
+import {
+  Checkbox,
+  FormControlLabel,
+  FormGroup,
+  FormControl,
+  IconButton
+} from "@mui/material";
 
 const Main = styled.div`
   .product-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(8, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     grid-area: ". . . . .";
     background-color: #ffffff;
-    margin: 20px;
+    margin: 10px 5px;
     color: black;
     column-gap: 5px;
     row-gap: 5px;
-    .filter {
-      /* transform: translateX(0px); */
-      border: 1px solid black;
-      margin-right: 10px;
-      padding: 10px;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-      transition: all 0.2s linear;
-      .gender-filter {
-      }
-    }
-    .product-card {
-      padding: 80px;
-      color: black;
-      border: 1px solid black;
-      background-color: white;
-    }
-    .sub-card {
-      color: #000000;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-      border: 1px solid black;
-      padding: 10px;
-      transition: all 0.2s linear;
-      h2 {
-        margin: 0px 0px 10px 0px;
-        font-weight: 100;
-      }
-      .check-box {
-        font-size: 16px;
-        margin-bottom: 5px;
-      }
-    }
-    .flex {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 10px;
-      user-select: none;
-      h1 {
-        margin: 0;
-        font-weight: 200;
-      }
-      .icon-fs {
-        padding: 5px;
-        margin: 0;
-        border-radius: 30%;
-        font-size: 25px;
-        color: #000;
-        transition: all 0.2s linear;
-        /* &:hover{
-          border-radius: 30%;
-          cursor: pointer;
-          background-color: rgba(0,0,0,.2);
-        } */
-      }
-    }
     .div1 {
-      grid-area: 1 / 1 / 3 / 2;
+      grid-area: 1 / 1 / 2 / 2;
     }
     .div2 {
       grid-area: 1 / 2 / 2 / 3;
@@ -88,231 +42,189 @@ const Main = styled.div`
       grid-area: 1 / 5 / 2 / 6;
     }
     .div6 {
-      grid-area: 2 / 2 / 3 / 3;
+      grid-area: 2 / 1 / 3 / 2;
     }
     .div7 {
-      grid-area: 2 / 3 / 3 / 4;
+      grid-area: 2 / 2 / 3 / 3;
     }
     .div8 {
-      grid-area: 2 / 4 / 3 / 5;
+      grid-area: 2 / 3 / 3 / 4;
     }
     .div9 {
-      grid-area: 2 / 5 / 3 / 6;
+      grid-area: 2 / 4 / 3 / 5;
     }
     .div10 {
-      grid-area: 3 / 2 / 4 / 3;
+      grid-area: 2 / 5 / 3 / 6;
     }
     .div11 {
-      grid-area: 3 / 3 / 4 / 4;
+      grid-area: 3 / 1 / 4 / 2;
     }
     .div12 {
-      grid-area: 3 / 4 / 4 / 5;
+      grid-area: 3 / 2 / 4 / 3;
     }
     .div13 {
-      grid-area: 3 / 5 / 4 / 6;
+      grid-area: 3 / 3 / 4 / 4;
     }
     .div14 {
-      grid-area: 4 / 2 / 5 / 3;
+      grid-area: 3 / 4 / 4 / 5;
     }
     .div15 {
-      grid-area: 4 / 3 / 5 / 4;
+      grid-area: 3 / 5 / 4 / 6;
     }
     .div16 {
-      grid-area: 4 / 4 / 5 / 5;
+      grid-area: 4 / 1 / 5 / 2;
     }
     .div17 {
-      grid-area: 4 / 5 / 5 / 6;
+      grid-area: 4 / 2 / 5 / 3;
     }
     .div18 {
-      grid-area: 5 / 2 / 6 / 3;
+      grid-area: 4 / 3 / 5 / 4;
     }
     .div19 {
-      grid-area: 5 / 3 / 6 / 4;
+      grid-area: 4 / 4 / 5 / 5;
     }
     .div20 {
-      grid-area: 5 / 4 / 6 / 5;
+      grid-area: 4 / 5 / 5 / 6;
     }
     .div21 {
-      grid-area: 5 / 5 / 6 / 6;
+      grid-area: 5 / 1 / 6 / 2;
     }
     .div22 {
-      grid-area: 6 / 2 / 7 / 3;
+      grid-area: 5 / 2 / 6 / 3;
     }
     .div23 {
-      grid-area: 6 / 3 / 7 / 4;
+      grid-area: 5 / 3 / 6 / 4;
     }
     .div24 {
-      grid-area: 6 / 4 / 7 / 5;
+      grid-area: 5 / 4 / 6 / 5;
     }
     .div25 {
-      grid-area: 6 / 5 / 7 / 6;
+      grid-area: 5 / 5 / 6 / 6;
     }
-    .div26 {
-      grid-area: 7 / 2 / 8 / 3;
+    .product-card {
+      padding: 150px 0px;
+      color: black;
+      border: 1px solid black;
+      background-color: white;
     }
-    .div27 {
-      grid-area: 7 / 3 / 8 / 4;
+  }
+  .filter {
+    margin: 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .genre {
+      #form {
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        span {
+          font-family: "Lora";
+          font-weight: 500;
+        }
+      }
+      h4 {
+        font-size: 1.3rem;
+        margin: 0;
+      }
     }
-    .div28 {
-      grid-area: 7 / 4 / 8 / 5;
+  }
+  .length{
+    font-size: 1.3rem;
+  }
+  .select{
+    display: flex;
+    flex-direction: row;
+    font-family: 'Lora';
+    label{
+      font-size: 1.3rem;
+      margin-right: 5px;
     }
-    .div29 {
-      grid-area: 7 / 5 / 8 / 6;
+    .select-input{
+      padding: 6px 20px 6px 6px;
     }
-    .div30 {
-      grid-area: 8 / 2 / 9 / 3;
-    }
-    .div31 {
-      grid-area: 8 / 3 / 9 / 4;
-    }
-    .div32 {
-      grid-area: 8 / 4 / 9 / 5;
-    }
-    .div33 {
-      grid-area: 8 / 5 / 9 / 6;
-    }
+  }
+  .black-button{
+    color: #000;
+  }
+  .normal-button{
+    
   }
 `;
 
 export default function ProductPage() {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
+  const [order, setOrder] = useState("");
+  const [gridstyle, setGrid] = useState()
+  const [list, setList] = useState()
+  
+  const handleGrid = e => {
+    setGrid(!gridstyle)
+  }
+  
+  const grid = document.querySelectorAll(
+    ".product-grid > .product-card"
+  ).length;
 
   return (
     <Main>
       <Header />
       <PromoBanner />
-      <div className="product-grid">
-        <div
-          className="filter div1"
-          style={{
-            height: isOpen ? "50px" : "300px"
-          }}
-        >
-          <div className="flex">
-            <h1>Filter</h1>
-            <Tooltip>
-              <IconButton>
-                <AiOutlineLeft
-                  className="icon-fs"
-                  onClick={toggle}
-                  style={{
-                    transform: isOpen ? "rotate(0deg)" : "rotate(-90deg)",
-                  }}
-                ></AiOutlineLeft>
-              </IconButton>
-            </Tooltip>
-          </div>
-          <div className="sub-card" style={{ opacity: isOpen ? "0" : "1" }}>
-            <h2>Gender</h2>
-            <form>
-              <div className="gender-filter">
-                <input type="checkbox" />
-                <label>Male</label>
-              </div>
-              <div className="gender-filter">
-                <input type="checkbox" />
-                <label>Female</label>
-              </div>
-            </form>
-          </div>
+      <div className="filter">
+        <div className="genre">
+          <h4>genre</h4>
+          <FormGroup id="form">
+            <FormControlLabel control={<Checkbox color="default" size="small" style={{ padding: 0, marginLeft: '10px' }}/>}
+              label="Male"/>
+            <FormControlLabel control={<Checkbox color="default" size="small"  style={{ padding: "0" }}/>}
+              label="Female"/>
+          </FormGroup>
         </div>
-        <div className="product-card div2">
-          <h2>1</h2>
+        <div className="length">{grid} products</div>
+        <FormControl className="select">
+          <label htmlFor="order">order by</label>
+          <select name="order" className="select-input">
+            <option defaultValue>none</option>
+            <option value="">alphabetical order</option>
+            <option value="">lowest price</option>
+            <option value="">highest price</option>
+          </select>
+        </FormControl>
+        <div className="grid-select">
+          <IconButton onClick={() => setGrid(!gridstyle)} className="">
+            <BsFillGridFill></BsFillGridFill>
+          </IconButton>
+          <IconButton onClick={handleGrid} className="list-button">
+            <FaThList></FaThList>
+          </IconButton>
         </div>
-        <div className="product-card div3">
-          <h2>2</h2>
-        </div>
-        <div className="product-card div4">
-          <h2>3</h2>
-        </div>
-        <div className="product-card div5">
-          <h2>4</h2>
-        </div>
-        <div className="product-card div6">
-          <h2>5</h2>
-        </div>
-        <div className="product-card div7">
-          <h2>6</h2>
-        </div>
-        <div className="product-card div8">
-          <h2>7</h2>
-        </div>
-        <div className="product-card div9">
-          <h2>8</h2>
-        </div>
-        <div className="product-card div10">
-          <h2>9</h2>
-        </div>
-        <div className="product-card div11">
-          <h2>10</h2>
-        </div>
-        <div className="product-card div12">
-          <h2>11</h2>
-        </div>
-        <div className="product-card div13">
-          <h2>12</h2>
-        </div>
-        <div className="product-card div14">
-          <h2>13</h2>
-        </div>
-        <div className="product-card div15">
-          <h2>14</h2>
-        </div>
-        <div className="product-card div16">
-          <h2>15</h2>
-        </div>
-        <div className="product-card div17">
-          <h2>16</h2>
-        </div>
-        <div className="product-card div18">
-          <h2>17</h2>
-        </div>
-        <div className="product-card div19">
-          <h2>18</h2>
-        </div>
-        <div className="product-card div20">
-          <h2>19</h2>
-        </div>
-        <div className="product-card div21">
-          <h2>20</h2>
-        </div>
-        <div className="product-card div22">
-          <h2>21</h2>
-        </div>
-        <div className="product-card div23">
-          <h2>22</h2>
-        </div>
-        <div className="product-card div24">
-          <h2>23</h2>
-        </div>
-        <div className="product-card div25">
-          <h2>24</h2>
-        </div>
-        <div className="product-card div26">
-          <h2>25</h2>
-        </div>
-        <div className="product-card div27">
-          <h2>26</h2>
-        </div>
-        <div className="product-card div28">
-          <h2>27</h2>
-        </div>
-        <div className="product-card div29">
-          <h2>28</h2>
-        </div>
-        <div className="product-card div30">
-          <h2>29</h2>
-        </div>
-        <div className="product-card div31">
-          <h2>30</h2>
-        </div>
-        <div className="product-card div32">
-          <h2>31</h2>
-        </div>
-        <div className="product-card div33">
-          <h2>32</h2>
-        </div>
+      </div>
+      <hr style={{ margin: 0 }}></hr>
+      <div className="product-grid" id="grid">
+        <div className="div1 product-card">1</div>
+        <div className="div2 product-card">2</div>
+        <div className="div3 product-card">3</div>
+        <div className="div4 product-card">4</div>
+        <div className="div5 product-card">5</div>
+        <div className="div6 product-card">6</div>
+        <div className="div7 product-card">7</div>
+        <div className="div8 product-card">8</div>
+        <div className="div9 product-card">9</div>
+        <div className="div10 product-card">10</div>
+        <div className="div11 product-card">11</div>
+        <div className="div12 product-card">12</div>
+        <div className="div13 product-card">13</div>
+        <div className="div14 product-card">14</div>
+        <div className="div15 product-card">15</div>
+        <div className="div16 product-card">16</div>
+        <div className="div17 product-card">17</div>
+        <div className="div18 product-card">18</div>
+        <div className="div19 product-card">19</div>
+        <div className="div20 product-card">20</div>
+        <div className="div21 product-card">21</div>
+        <div className="div22 product-card">22</div>
+        <div className="div23 product-card">23</div>
+        <div className="div24 product-card">24</div>
+        <div className="div25 product-card">25</div>
       </div>
       <Footer />
     </Main>

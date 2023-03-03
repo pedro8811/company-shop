@@ -89,7 +89,7 @@ export default function Collections(){
         </div>
         <div className="product-card">
           <img src={sobretudo} alt="" />
-          <p>all over black</p>
+          <p>above all black</p>
           <button>Check Out</button>
         </div>
       </div>

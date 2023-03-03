@@ -17,7 +17,6 @@ const Main = styled.div`
     img {
       width: 65%;
       margin-left: 120px;
-      transform: translateY(3px);
       filter: grayscale(100%);
     }
   }

@@ -11,7 +11,7 @@ const Header = styled.header`
   border-bottom: 1px solid #858585;
   text-transform: uppercase;
   div {
-    padding: 0px 30px;
+    padding: 5px 30px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
