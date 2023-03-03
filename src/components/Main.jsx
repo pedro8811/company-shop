@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Button } from "./styles";
 
 const Content = styled.div`
+  z-index: 4;
   background: #F6F6F6;
   margin: 0;
   width: 100%;
@@ -19,6 +20,7 @@ const Content = styled.div`
     font-size: 1em;
     text-align: right;
     img{
+      z-index: 3;
       transform: translateY(0px);
       width: 93%;
       filter: grayscale(100%);

@@ -8,8 +8,11 @@ import { IconButton, Tooltip } from "@mui/material";
 
 const Header = styled.header`
   background-color: #f6f6f6;
-  border-bottom: 1px solid #858585;
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #f6f6f6;
+  box-shadow: 0 0 10px #0000007e;
   text-transform: uppercase;
+  z-index: 5;
   div {
     padding: 5px 30px;
     display: grid;

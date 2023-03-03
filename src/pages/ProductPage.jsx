@@ -8,12 +8,74 @@ import {AiOutlineUp, AiOutlineDown} from 'react-icons/ai'
 import {BsFillGridFill} from 'react-icons/bs'
 import {FaThList} from 'react-icons/fa'
 import {
+  Radio,
+  RadioGroup,
   Checkbox,
   FormControlLabel,
-  FormGroup,
   FormControl,
-  IconButton
+  FormLabel,
+  IconButton,
 } from "@mui/material";
+
+
+
+
+
+const BpIcon = styled('span')(({ theme }) => ({
+  borderRadius: '50%',
+  width: 16,
+  height: 16,
+  boxShadow:'0 0 0 1px rgb(16 22 26 / 40%)',
+  backgroundColor: '#2e2e2e',
+  backgroundImage:'linear-gradient(180deg,hsla(0,0%,100%,.05),hsla(0,0%,100%,0))',
+  '.Mui-focusVisible &': {
+    outline: '2px auto #00000099',
+    outlineOffset: 2,
+  },
+  'input:hover ~ &': {
+    backgroundColor: '#212121',
+  },
+  'input:disabled ~ &': {
+    boxShadow: 'none',
+    background:'rgba(57,75,89,.5)',
+  },
+}));
+
+const BpCheckedIcon = styled(BpIcon)({
+  backgroundColor: '#474747',
+  backgroundImage: 'linear-gradient(180deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,0))',
+  '&:before': {
+    display: 'block',
+    width: 16,
+    height: 16,
+    backgroundImage: 'radial-gradient(#fff,#fff 28%,transparent 32%)',
+    content: '""',
+  },
+  'input:hover ~ &': {
+    backgroundColor: '#404040',
+  },
+});
+
+function BpRadio(props) {
+  return (
+    <Radio
+      disableRipple
+      color="default"
+      checkedIcon={<BpCheckedIcon />}
+      icon={<BpIcon />}
+      {...props}
+    />
+  );
+}
+
+
+
+
+
+
+
+
+
 
 const Main = styled.div`
   .product-grid {
@@ -22,10 +84,11 @@ const Main = styled.div`
     grid-template-rows: repeat(5, 1fr);
     grid-area: ". . . . .";
     background-color: #ffffff;
-    margin: 10px 5px;
+    border-top: 1px solid #737373;
+    padding: 10px 0px;
     color: black;
-    column-gap: 5px;
-    row-gap: 5px;
+    column-gap: 9px;
+    row-gap: 8px;
     .div1 {
       grid-area: 1 / 1 / 2 / 2;
     }
@@ -102,46 +165,38 @@ const Main = styled.div`
       grid-area: 5 / 5 / 6 / 6;
     }
     .product-card {
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,.5);
       padding: 150px 0px;
       color: black;
-      border: 1px solid black;
       background-color: white;
     }
   }
+
+
   .filter {
+    background-color: #fff;
+    width: 100%;
+    padding: 5px 0;
     margin: 0px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    .genre {
-      #form {
-        margin: 0;
-        display: flex;
-        flex-direction: row;
-        span {
-          font-family: "Lora";
-          font-weight: 500;
-        }
-      }
-      h4 {
-        font-size: 1.3rem;
-        margin: 0;
-      }
-    }
-  }
-  .length{
-    font-size: 1.3rem;
-  }
-  .select{
-    display: flex;
-    flex-direction: row;
-    font-family: 'Lora';
-    label{
+      /* Radio Button Form  */
+    .length{
       font-size: 1.3rem;
-      margin-right: 5px;
     }
-    .select-input{
-      padding: 6px 20px 6px 6px;
+    .select{
+      display: flex;
+      flex-direction: row;
+      font-family: 'Lora';
+      label{
+        font-size: 1.3rem;
+        margin-right: 5px;
+      }
+      .select-input{
+        padding: 6px 20px 6px 6px;
+      }
     }
   }
   .black-button{
@@ -149,6 +204,19 @@ const Main = styled.div`
   }
   .normal-button{
     
+  }
+  .grid-select{
+    display: flex;
+    flex-direction: row;
+  }
+  .font-default{
+    font-family: 'Lora';
+    font-weight: 400;
+    font-size: 1.3rem;
+    span{
+      font-family: 'Lora';
+      font-weight: 500;
+    }
   }
 `;
 
@@ -161,44 +229,54 @@ export default function ProductPage() {
     setGrid(!gridstyle)
   }
   
-  const grid = document.querySelectorAll(
-    ".product-grid > .product-card"
-  ).length;
+  const grid = document.querySelectorAll(".product-grid > .product-card").length;
 
   return (
     <Main>
       <Header />
       <PromoBanner />
       <div className="filter">
-        <div className="genre">
-          <h4>genre</h4>
-          <FormGroup id="form">
-            <FormControlLabel control={<Checkbox color="default" size="small" style={{ padding: 0, marginLeft: '10px' }}/>}
-              label="Male"/>
-            <FormControlLabel control={<Checkbox color="default" size="small"  style={{ padding: "0" }}/>}
-              label="Female"/>
-          </FormGroup>
-        </div>
+
+
+
+      <FormControl>
+        <FormLabel id="demo-customized-radios" className="text-dark font-default">Gender</FormLabel>
+        <RadioGroup
+          defaultValue="female"
+          aria-labelledby="demo-customized-radios"
+          name="customized-radios"
+          className="d-flex flex-row"
+          >
+          <FormControlLabel value="female" control={<BpRadio />} className="font-default" label="Female"/>
+          <FormControlLabel value="male" control={<BpRadio />} className="font-default" label="Male" />
+          <FormControlLabel value="other" control={<BpRadio />} className="font-default" label="All" />
+        </RadioGroup>
+      </FormControl>
+
+
+
+
+
         <div className="length">{grid} products</div>
         <FormControl className="select">
           <label htmlFor="order">order by</label>
-          <select name="order" className="select-input">
+          <select name="order" className="select-input rounded">
             <option defaultValue>none</option>
             <option value="">alphabetical order</option>
             <option value="">lowest price</option>
             <option value="">highest price</option>
           </select>
         </FormControl>
-        <div className="grid-select">
+        <FormControl className="grid-select">
           <IconButton onClick={() => setGrid(!gridstyle)} className="">
             <BsFillGridFill></BsFillGridFill>
           </IconButton>
           <IconButton onClick={handleGrid} className="list-button">
             <FaThList></FaThList>
           </IconButton>
-        </div>
+        </FormControl>
       </div>
-      <hr style={{ margin: 0 }}></hr>
+      {/* <hr style={{ margin: 0 }}></hr> */}
       <div className="product-grid" id="grid">
         <div className="div1 product-card">1</div>
         <div className="div2 product-card">2</div>

@@ -4,6 +4,7 @@ import styled from "styled-components";
 const Main = styled.div`
   width: 100%;
   height: 520px;
+  /* box-shadow: 0 3px 5px rgba(0,0,0,.5); */
   .right-label{
     text-align: center;
     margin: 0;

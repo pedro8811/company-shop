@@ -35,6 +35,7 @@ const Button = styled.button`
 
 const Title = styled.h1`
   font-weight: 500;
+  font-size: 2rem;
   text-transform: uppercase;
   border-bottom: 1px solid black;
   margin: 0;
