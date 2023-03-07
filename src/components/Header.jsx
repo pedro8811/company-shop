@@ -9,12 +9,16 @@ import { IconButton, Tooltip } from "@mui/material";
 const Header = styled.header`
   background-color: #f6f6f6;
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid #f6f6f6;
-  box-shadow: 0 0 10px #0000007e;
+  border-bottom: 1px solid #000000;
   text-transform: uppercase;
   z-index: 5;
   div {
     padding: 5px 30px;
+    @media(max-width: 768px){
+      padding: 5px;
+      display: flex;
+      justify-content: space-between;
+    }
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
@@ -40,6 +44,9 @@ const Header = styled.header`
     list-style-type: none;
     padding: 0;
     display: flex;
+    @media (max-width: 768px){
+      display: none;
+    }
     justify-content: space-around;
     .nav-li {
       cursor: pointer;
@@ -58,6 +65,9 @@ const Header = styled.header`
     margin: 0;
     padding: 0;
     margin-left: 180px;
+    @media (max-width: 768px){
+      margin: 0;
+    }
     display: flex;
     justify-content: space-around;
     color: #686868;
@@ -84,9 +94,7 @@ const Header = styled.header`
 export default function Nav() {
   const { signout } = useAuth();
   const navigate = useNavigate();
-
-  const navbar = document.getElementsByClassName("nav");
-
+  
   return (
     <Header>
       <div>

@@ -7,6 +7,10 @@ const Main = styled.div`
   padding: 0px 0px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  @media (max-width: 768px){
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+  }
   color: white;
   ul{
     margin: 5px 0px;

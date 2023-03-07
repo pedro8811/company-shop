@@ -25,7 +25,7 @@ export default function App() {
           <Route path="/home" element={<Private Item={Home} />} />
           <Route path="/products" element={<Private Item={ProductPage} />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/boautus" element={<AboutUsPage />} />
+          <Route path="/aboutus" element={<AboutUsPage />} />
         </Routes>
       </AuthProvider>
     </div>
