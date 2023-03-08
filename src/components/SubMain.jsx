@@ -17,6 +17,10 @@ const Main = styled.div`
     img {
       width: 65%;
       margin-left: 120px;
+      @media (max-width: 768px){
+        margin-left: 0;
+        width: 100%;
+      }
       filter: grayscale(100%);
     }
   }

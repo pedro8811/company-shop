@@ -9,6 +9,9 @@ const Content = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  @media (max-width: 768px){
+    
+  }
   justify-items: center;
   align-items: center;
   border-bottom: 1px solid black;
@@ -19,10 +22,15 @@ const Content = styled.div`
     grid-column: 7 / 12;
     font-size: 1em;
     text-align: right;
+    @media (max-width: 768px){
+      grid-column: 1 / 12;
+    }
     img{
       z-index: 3;
-      transform: translateY(0px);
       width: 93%;
+      @media (max-width: 768px){
+        width: 40%;
+      }
       filter: grayscale(100%);
     }
   }
@@ -30,6 +38,11 @@ const Content = styled.div`
     grid-column: 1 / 7;
     text-align: right;
     z-index: 1;
+    @media (max-width: 768px){
+      text-align: center;
+      grid-column: 1 / 12;
+      padding: 10px 0px 20px 0px;
+    }
     h1{
       transform: translateX(60px);
       letter-spacing: 4px;

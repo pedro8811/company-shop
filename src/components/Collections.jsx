@@ -19,18 +19,21 @@ const Cards = styled.div`
     margin: 20px 30px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    @media (max-width: 768px){
+      grid-template-columns: repeat(1, 1fr);
+    }
     grid-column-gap: 40px;
     .product-card{
       /* border-radius: 10px; */
-      /* box-shadow: 0 0 10px rgba(0,0,0,.5); */
-      border: 1px solid black;
+      box-shadow: 0 0 10px rgba(0,0,0,.5);
+      /* border: 1px solid black; */
       text-align: center;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
       img{
-        width: 320px;
+        width: 100%;
       }
       p{
         margin: 0;
@@ -52,11 +55,15 @@ const Cards = styled.div`
     }
   }
 `
+const Title = styled.h1`
+  font-weight: 500;
+  margin: 10px 0px;
+`
 
 export default function Collections(){
   return(
     <Cards>
-      <h1>New All Black Men Collection</h1>
+      <Title>New All Black Men Collection</Title>
       <div className="men-container">
         <div className="product-card">
           <img src={camiseta} alt="" />
@@ -75,7 +82,7 @@ export default function Collections(){
         </div>
       </div>
 
-      <h1>New All Black Women Collection</h1>
+      <Title>New All Black Women Collection</Title>
       <div className="men-container">
         <div className="product-card">
           <img src={vestido} alt="" />
