@@ -4,18 +4,22 @@ import Header from '../components/Header'
 import banner from '../../src/assets/webp-imgs/mulher-banner1.webp'
 import { FormGroup, FormControlLabel, Checkbox } from "@mui/material";
 import { Button } from "../components/styles";
+import { useState } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Main = styled.div`
   margin: 0;
 `
 
 const Container = styled.div`
-  margin: 50px auto;
-  width: 60%;
+  background: rgb(255,255,255);
+  background: linear-gradient(234deg, rgba(255,255,255,1) 0%, rgba(231,231,231,1) 35%, rgba(255,255,255,1) 70%, rgba(238,238,238,1) 100%);
+  margin: 45px auto;
+  width: 58%;
   padding: 0px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  box-shadow: 0 0 10px rgba(0,0,0,.5);
+  box-shadow: 0 0 5px rgba(0,0,0,.5);
   align-items: center;
   border-radius: 25px;
   img{
@@ -26,8 +30,23 @@ const Container = styled.div`
 
 const FormSection = styled.div`
   padding: 20px;
-  margin: 0;
+  button{
+    text-align: center;
+    margin-top: 5px;
+    border: 1px solid black;
+    width: 60%;
+    &:hover{
+      color: #000;
+      background-color: #fff;
+    }
+    &:disabled{
+      color: grey;
+      background: #d6d6d6;
+      border: grey 1px solid;
+    }
+  }
 `
+
 const Title = styled.h1`
   font-weight: 300;
   font-size: 2.2em;
@@ -47,28 +66,14 @@ const Label = styled.label`
 `
 
 const Form = styled.form`
-  display: flex;
-  flex-direction: column;
+  margin: 0 auto;
   input{
     margin-bottom: 5px;
     font-size: 14px;
     border: 1px solid black;
-    border-radius: 5px;
+    border-radius: 8px;
     padding: 5px;
     width: 100%;
-    &:focus{
-      /* box-shadow: 0 0 5px rgba(0,0,0,.5); */
-    }
-  }
-  button{
-    margin: auto;
-    margin-top: 5px;
-    border: 1px solid black;
-    width: 60%;
-    &:hover{
-      color: #000;
-      background-color: #fff;
-    }
   }
   span{
     font-family: 'Lora';
@@ -83,6 +88,13 @@ const DoubleGrid = styled.div`
 `
 
 export default function ContactPage(){
+
+  // const [disableFirst, setDisableFirst] = useState(false)
+
+  // const handleFirst = e => {
+  //   setDisableFirst(e.target.checked)
+  // }
+
   return(
     <Main>
       <Header></Header>
@@ -92,23 +104,24 @@ export default function ContactPage(){
           <Title>Subscribe to our newsletter</Title>
           <Text>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto doloremque soluta reiciendis sapiente amet nisi dolorem sequi hic quidem temporibus eligendi, nulla ab modi impedit numquam, repellat corrupti non unde.</Text>
           <Form action="">
-            <Label htmlFor="email">E-mail</Label>
-            <input type="email" name="email"/>
+            <Label htmlFor="email">E-mail*</Label>
+            <input class="" type="email" name="email" required/>
             <DoubleGrid>
               <div>
-                <Label htmlFor="nome">Name</Label>
-                <input type="text" name="nome" />
+                <Label htmlFor="nome">Name*</Label>
+                <input type="text" name="nome" required/>
               </div>
               <div>
-                <Label htmlFor="nome">Phone number</Label>
-                <input type="text" name="nome" />
+                <Label htmlFor="phone">Phone number*</Label>
+                <input type="tel" name="phone" required/>
               </div>
             </DoubleGrid>
             <FormGroup>
-              <FormControlLabel className="formControl" control={<Checkbox color="default"/>} label="I agree with all terms and conditions" />
-              <FormControlLabel className="formControl" control={<Checkbox color="default"/>} label="I agree with all terms and conditions" />
+              <FormControlLabel className="formControl"
+                control={<Checkbox color="default" id="check-first" required/>}
+              label='I agree with all terms and conditions' />
             </FormGroup>
-            <Button addBorder fontSize="1.2em" color="#fff" bgColor="#000">Sign</Button>
+            <Button id="buttondi" addBorder fontSize="1.2em" color="#fff" bgColor="#000" type="none" >Sign</Button>
           </Form>
         </FormSection>
       </Container>

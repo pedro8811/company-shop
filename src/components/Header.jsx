@@ -7,7 +7,8 @@ import useAuth from "../hooks/useAuth";
 import { IconButton, Tooltip } from "@mui/material";
 
 const Header = styled.header`
-  background-color: #f6f6f6;
+  background: rgb(255,255,255);
+  background: linear-gradient(219deg, rgba(255,255,255,1) 0%, rgba(232,232,232,1) 35%, rgba(255,255,255,1) 70%, rgba(233,233,233,1) 100%);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid #000000;
   text-transform: uppercase;
@@ -33,11 +34,14 @@ const Header = styled.header`
       margin-right: 12px;
     }
     .title {
-      letter-spacing: 4px;
-      font-size: 1.4em;
-      font-weight: 600;
-      color: #000000;
-      margin: 0;
+      a{
+        letter-spacing: 4px;
+        font-size: 0.65em;
+        font-weight: 500;
+        text-decoration: none;
+        color: #000000;
+        margin: 0;
+      }
     }
   }
   .nav {
@@ -100,7 +104,7 @@ export default function Nav() {
       <div>
         <div className="logo">
           {/* <IoColorFilterSharp id="icon" /> */}
-          <h1 className="title">Fire Company.</h1>
+          <h1 className="title"><Link to="/home">Fire Company.</Link></h1>
         </div>
         <ul className="nav">
           <Link to="/home" className="nav-li">

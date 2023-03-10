@@ -3,7 +3,8 @@ import styled from "styled-components";
 
 const Main = styled.div`
   margin: 0;
-  background-color: #000;
+  background: rgb(0,0,0);
+  background: linear-gradient(183deg, rgba(0,0,0,1) 0%, rgba(19,19,19,1) 35%, rgba(0,0,0,1) 70%, rgba(0,0,0,1) 100%);
   padding: 0px 0px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
