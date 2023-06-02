@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Button } from "./styles";
 
 const Content = styled.div`
-  z-index: 4;
+  z-index: 0;
   background: #F6F6F6;
   margin: 0;
   width: 100%;

@@ -175,8 +175,8 @@ export default function ProductPage() {
           name="customized-radios"
           className="d-flex flex-row"
           >
-          <FormControlLabel value="female" control={<BpRadio />} className="font-default" label="Female"/>
-          <FormControlLabel value="male" control={<BpRadio />} className="font-default" label="Male" />
+          <FormControlLabel value="female" control={<BpRadio />} className="font-default" label="Male"/>
+          <FormControlLabel value="male" control={<BpRadio />} className="font-default" label="Female" />
           <FormControlLabel value="other" control={<BpRadio />} className="font-default" label="All" />
         </RadioGroup>
       </FormControl>

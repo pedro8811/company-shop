@@ -1,18 +1,14 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { IoSearchOutline, IoCartOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
 import { IconButton, Tooltip } from "@mui/material";
 
 const Header = styled.header`
-  background: rgb(255,255,255);
   background: linear-gradient(219deg, rgba(255,255,255,1) 0%, rgba(232,232,232,1) 35%, rgba(255,255,255,1) 70%, rgba(233,233,233,1) 100%);
-  backdrop-filter: blur(8px);
   border-bottom: 1px solid #000000;
   text-transform: uppercase;
-  z-index: 5;
+  z-index: 1;
   div {
     padding: 5px 30px;
     @media(max-width: 768px){
@@ -96,18 +92,16 @@ const Header = styled.header`
 `;
 
 export default function Nav() {
-  const { signout } = useAuth();
-  const navigate = useNavigate();
   
   return (
     <Header>
       <div>
         <div className="logo">
           {/* <IoColorFilterSharp id="icon" /> */}
-          <h1 className="title"><Link to="/home">Fire Company.</Link></h1>
+          <h1 className="title"><Link to="/">Fire Company.</Link></h1>
         </div>
         <ul className="nav">
-          <Link to="/home" className="nav-li">
+          <Link to="/" className="nav-li">
             <li>Home</li>
           </Link>
           <Link to="/products" className="nav-li">
@@ -131,8 +125,8 @@ export default function Nav() {
               <IoCartOutline className="auth-li fsvinte"></IoCartOutline>
             </IconButton>
           </Tooltip>
-          <Link onClick={() => [signout(), navigate("/")]} className="auth-li">
-            Log Out
+          <Link className="auth-li">
+            Login
           </Link>
         </ul>
       </div>

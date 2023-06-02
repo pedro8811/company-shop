@@ -4,7 +4,6 @@ import Header from '../components/Header'
 import banner from '../../src/assets/webp-imgs/mulher-banner1.webp'
 import { FormGroup, FormControlLabel, Checkbox } from "@mui/material";
 import { Button } from "../components/styles";
-import { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Main = styled.div`
@@ -89,12 +88,6 @@ const DoubleGrid = styled.div`
 
 export default function ContactPage(){
 
-  // const [disableFirst, setDisableFirst] = useState(false)
-
-  // const handleFirst = e => {
-  //   setDisableFirst(e.target.checked)
-  // }
-
   return(
     <Main>
       <Header></Header>
@@ -105,7 +98,7 @@ export default function ContactPage(){
           <Text>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto doloremque soluta reiciendis sapiente amet nisi dolorem sequi hic quidem temporibus eligendi, nulla ab modi impedit numquam, repellat corrupti non unde.</Text>
           <Form action="">
             <Label htmlFor="email">E-mail*</Label>
-            <input class="" type="email" name="email" required/>
+            <input className="" type="email" name="email" required/>
             <DoubleGrid>
               <div>
                 <Label htmlFor="nome">Name*</Label>

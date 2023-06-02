@@ -26,6 +26,13 @@ const TextContainter = styled.div`
   background: linear-gradient(219deg, rgba(201,201,201,1) 0%, #d9d9d9 27%, rgba(255,255,255,1) 67%, #bfbfbf 100%);
   box-shadow: 0 0 10px rgba(0,0,0,.5);
   grid-column: 4 / 10;
+  align-items: center;
+  h1{
+    margin: 0;
+  }
+  h2{
+    font-size: 1.4em;
+  }
 `
 
 const SecondGrid = styled.div`
@@ -62,7 +69,7 @@ export default function AboutUsPage(){
         <TextContainter>
           <div className="d-flex flex-row align-items-end">
             <h1>FIRE COMPANY</h1>
-            <h4>and its origins</h4>
+            <h2>and its origins</h2>
           </div>
           <p className="fs-5">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis mollitia molestiae error placeat iusto facilis iste, vero nulla facere, at doloribus, amet veniam quae dolorem impedit corrupti. Perferendis, rem consectetur!
