@@ -14,17 +14,25 @@ const Main = styled.div`
   border-bottom: 1px solid black;
   .img-container {
     grid-column: 1 / 7;
+    @media (max-width: 768px){
+      grid-column: 4 / 10;
+    }
     img {
       width: 65%;
       margin-left: 120px;
       @media (max-width: 768px){
-        margin-left: 0;
+        margin: 1rem auto;
         width: 100%;
       }
       filter: grayscale(100%);
     }
   }
   .text-container {
+    @media (max-width: 768px){
+      text-align: center;
+      grid-column: 4 / 12;
+      margin-bottom: 1rem;
+    }
     grid-column: 7 / 12;
     transform: translateX(-50px);
     h1 {

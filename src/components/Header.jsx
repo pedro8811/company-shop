@@ -92,12 +92,10 @@ const Header = styled.header`
 `;
 
 export default function Nav() {
-  
   return (
     <Header>
       <div>
         <div className="logo">
-          {/* <IoColorFilterSharp id="icon" /> */}
           <h1 className="title"><Link to="/">Fire Company.</Link></h1>
         </div>
         <ul className="nav">
@@ -107,11 +105,11 @@ export default function Nav() {
           <Link to="/products" className="nav-li">
             <li>Products</li>
           </Link>
-          <Link to="/contact" className="nav-li">
-            <li>Contact</li>
-          </Link>
           <Link to="/aboutus" className="nav-li">
             <li>About Us</li>
+          </Link>
+          <Link to="/contact" className="nav-li">
+            <li>Contact</li>
           </Link>
         </ul>
         <ul className="auth">

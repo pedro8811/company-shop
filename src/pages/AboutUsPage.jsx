@@ -30,9 +30,6 @@ const TextContainter = styled.div`
   h1{
     margin: 0;
   }
-  h2{
-    font-size: 1.4em;
-  }
 `
 
 const SecondGrid = styled.div`
@@ -63,12 +60,12 @@ const SecondTextContainter = styled.div`
 export default function AboutUsPage(){
   return(
     <div>
-      <Header></Header>
+      <Header />
       <FirstGrid>
         <img src={require('../assets/webp-imgs/mulher-sentada.webp')} alt="" />
         <TextContainter>
           <div className="d-flex flex-row align-items-end">
-            <h1>FIRE COMPANY</h1>
+            <h2>FIRE COMPANY&nbsp;</h2>
             <h2>and its origins</h2>
           </div>
           <p className="fs-5">
@@ -85,7 +82,7 @@ export default function AboutUsPage(){
       <SecondGrid>
         <SecondTextContainter>
           <div className="d-flex flex-row align-items-end">
-            <h1>OUR FIRST STEPS IN THE MARKET</h1>
+            <h2>OUR FIRST STEPS IN THE MARKET</h2>
           </div>
           <p className="fs-5">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis mollitia molestiae error placeat iusto facilis iste, vero nulla facere, at doloribus, amet veniam quae dolorem impedit corrupti. Perferendis, rem consectetur!

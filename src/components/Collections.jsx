@@ -6,12 +6,10 @@ import camiseta from '../assets/img/camiseta.jpg'
 import vestido from '../assets/img/vestido.jpg'
 import skirt from '../assets/img/skirt.jpg'
 import sobretudo from '../assets/img/sobretudo.jpg'
-import { Button } from "./styles";
 
 const Cards = styled.div`
   text-align: center;
   width: 100%;
-  border-bottom: 1px solid black;
   h1{
     font-weight: 500;
   }
@@ -21,12 +19,13 @@ const Cards = styled.div`
     grid-template-columns: repeat(3, 1fr);
     @media (max-width: 768px){
       grid-template-columns: repeat(1, 1fr);
+      .product-card{
+        margin-bottom: 1rem;
+      }
     }
     grid-column-gap: 40px;
     .product-card{
-      /* border-radius: 10px; */
       box-shadow: 0 0 10px rgba(0,0,0,.5);
-      /* border: 1px solid black; */
       text-align: center;
       display: flex;
       align-items: center;

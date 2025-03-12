@@ -29,7 +29,7 @@ const Content = styled.div`
       z-index: 3;
       width: 93%;
       @media (max-width: 768px){
-        width: 40%;
+        width: 75%;
       }
       filter: grayscale(100%);
     }
@@ -64,8 +64,6 @@ const Content = styled.div`
 `
 
 export default function Main(){
-
-
   return(
     <Content>
         <div className="text-container">

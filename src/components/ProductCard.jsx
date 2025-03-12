@@ -2,9 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { 
   Button,
-  IconButton,
   Checkbox,
-  Tooltip
 } from "@mui/material";
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 import ProductStars from "./ProductStars";
@@ -76,9 +74,10 @@ const Bottom = styled.div`
   justify-content: space-around;
   align-items: end;
   .buy-button {
+    font-family: 'Lora';
     border: none;
     margin-top: 15px;
-    font-size: 1em;
+    font-size: 1.2em;
     background-color: #ffffff;
     color: #000;
     transition: all 0.1s linear;

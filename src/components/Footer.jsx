@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Main = styled.div`
   margin: 0;
-  background: rgb(0,0,0);
+  margin-top: 20px;
   background: linear-gradient(183deg, rgba(0,0,0,1) 0%, rgba(19,19,19,1) 35%, rgba(0,0,0,1) 70%, rgba(0,0,0,1) 100%);
   padding: 0px 0px;
   display: grid;
@@ -17,7 +17,6 @@ const Main = styled.div`
     margin: 5px 0px;
     list-style-type: none;
     padding: 10px;
-    /* border: 1px solid white; */
     li{
       margin-bottom: 10px;
       a{
